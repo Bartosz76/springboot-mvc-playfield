@@ -6,7 +6,17 @@
     <meta charset="UTF-8">
     <title></title>
 </head>
+<style>
+    body {
+        background-color: dodgerblue;
+    }
+</style>
 <body>
-    Welcome to the blue app
+    Welcome to this App which is so blue!
+    <form action="insertInput">
+        Enter the 1st number: <input type="text" name="NumberOne"><br>
+        Enter the 2nd number: <input type="text" name="NumberTwo"><br>
+        <input type="submit" value="Proceed!">
+    </form>
 </body>
 </html>
