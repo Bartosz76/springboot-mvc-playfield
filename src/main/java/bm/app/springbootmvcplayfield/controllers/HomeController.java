@@ -13,7 +13,7 @@ public class HomeController {
 
     @RequestMapping("/index")
     public String getHomePage() {
-        return "index.jsp";
+        return "index";
     }
 
     /**
@@ -30,7 +30,7 @@ public class HomeController {
         int resultNumber = numberOne + numberTwo;
         HttpSession session = req.getSession();
         session.setAttribute("resultNumber", resultNumber);
-        return "result.jsp";
+        return "result";
     }
 
     /**
@@ -49,7 +49,7 @@ public class HomeController {
                                  HttpSession session) {
         int resultNumber = NumberOne - NumberTwo;
         session.setAttribute("resultNumber", resultNumber);
-        return "result.jsp";
+        return "result";
     }
 
     /**
@@ -65,8 +65,19 @@ public class HomeController {
                                       @RequestParam("NumberTwo") int numberTwo) {
         ModelAndView modelAndView = new ModelAndView();
         int resultNumber = numberOne * numberTwo;
-        modelAndView.setViewName("result.jsp");
+        modelAndView.setViewName("result");
         modelAndView.addObject("resultNumber", resultNumber);
         return modelAndView;
     }
+
+    /**
+     * At this stage I am changing the way view files are accessed.
+     * ------------------------------------------------------------
+     * I can use this if I want to avoid specifying the extension of the view file.
+     * (Webapp folder is public and thus anyone can access files there without the
+     * need to go through my controller (just the website name + / + the name of the
+     * file - it will bypass the controller!)).
+     * Instead of adding the extension to the file I want returned, I can specify the
+     * path to the file and its extension in application.properties instead.
+     */
 }
