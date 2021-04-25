@@ -18,6 +18,7 @@
         Enter the 2nd number: <input type="text" name="NumberTwo"><br>
         <input type="submit" value="Add!">
         <input type="submit" formaction="/substract" value="Substract!">
+        <input type="submit" formaction="/multiply" value="Multiply!">
     </form>
 </body>
 </html>
