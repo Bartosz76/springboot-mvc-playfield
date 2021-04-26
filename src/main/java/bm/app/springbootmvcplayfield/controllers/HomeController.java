@@ -1,6 +1,7 @@
 package bm.app.springbootmvcplayfield.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -63,9 +64,9 @@ public class HomeController {
     @RequestMapping("/multiply")
     public ModelAndView multiplyInput(@RequestParam("NumberOne") int numberOne,
                                       @RequestParam("NumberTwo") int numberTwo) {
-        ModelAndView modelAndView = new ModelAndView();
-        int resultNumber = numberOne * numberTwo;
-        modelAndView.setViewName("result");
+        ModelAndView modelAndView = new ModelAndView(); // <-- .setViewName can be basically set here,
+        int resultNumber = numberOne * numberTwo;       // just add the page's name in the bracket
+        modelAndView.setViewName("result");             // <-- instead of this line of code.
         modelAndView.addObject("resultNumber", resultNumber);
         return modelAndView;
     }
@@ -80,4 +81,19 @@ public class HomeController {
      * Instead of adding the extension to the file I want returned, I can specify the
      * path to the file and its extension in application.properties instead.
      */
+
+    /**
+     * Below is a very similar way but with... just a Model, not ModelAndView.
+     * Instead of Model I could also use ModelMap. If I want a simple object,
+     * I should go for Model and if I want data in a map format... ModelMap.
+     */
+
+    @RequestMapping("/divide")
+    public String divideInput(@RequestParam("NumberOne") int numberOne,
+                              @RequestParam("NumberTwo") int numberTwo,
+                              Model model) {
+        int resultNumber = numberOne / numberTwo;
+        model.addAttribute("resultNumber", resultNumber);
+        return "result";
+    }
 }

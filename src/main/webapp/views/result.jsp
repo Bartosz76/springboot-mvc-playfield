@@ -13,5 +13,8 @@
 </style>
 <body>
 So very blue. And here is the result: ${resultNumber}
+<form action="/index" method="get">
+    <input type="submit" value="Back to menu.">
+</form>
 </body>
 </html>

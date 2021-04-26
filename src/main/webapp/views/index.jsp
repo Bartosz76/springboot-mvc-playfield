@@ -19,6 +19,7 @@
         <input type="submit" value="Add!">
         <input type="submit" formaction="/substract" value="Substract!">
         <input type="submit" formaction="/multiply" value="Multiply!">
+        <input type="submit" formaction="/divide" value="Divide!">
     </form>
 </body>
 </html>
