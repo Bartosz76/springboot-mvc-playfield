@@ -1,5 +1,6 @@
 package bm.app.springbootmvcplayfield.controllers;
 
+import bm.app.springbootmvcplayfield.models.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,11 @@ public class HomeController {
     @RequestMapping("/index")
     public String getHomePage() {
         return "index";
+    }
+
+    @RequestMapping("/objectPage")
+    public String getToObjectsPage() {
+        return "objectPage";
     }
 
     /**
@@ -95,5 +101,20 @@ public class HomeController {
         int resultNumber = numberOne / numberTwo;
         model.addAttribute("resultNumber", resultNumber);
         return "result";
+    }
+
+    /**
+     * Creating an object out of provided input.
+     */
+
+    @RequestMapping("/createAPerson")
+    public String addAPerson(@RequestParam String firstName,
+                             @RequestParam String lastName,
+                             Model model) {
+        Person person = new Person();
+        person.setName(firstName);
+        person.setLastName(lastName);
+        model.addAttribute("person", person);
+        return "resultPerson";
     }
 }

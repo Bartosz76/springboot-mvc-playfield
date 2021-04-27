@@ -21,5 +21,8 @@
         <input type="submit" formaction="/multiply" value="Multiply!">
         <input type="submit" formaction="/divide" value="Divide!">
     </form>
+    <form action="/objectPage" method="get">
+        <input type="submit" value="Go to object adding page.">
+    </form>
 </body>
 </html>
