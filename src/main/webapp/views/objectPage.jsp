@@ -17,6 +17,7 @@ Hello, person!
     Enter the first name: <input type="text" name="firstName"><br>
     Enter the last name: <input type="text" name="lastName"><br>
     <input type="submit" value="Add!">
+    <input type="submit" formaction="/createAPersonButDifferently" value="Another add!">
 </form>
 </body>
 </html>

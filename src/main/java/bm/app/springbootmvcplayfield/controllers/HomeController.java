@@ -3,6 +3,7 @@ package bm.app.springbootmvcplayfield.controllers;
 import bm.app.springbootmvcplayfield.models.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -115,6 +116,27 @@ public class HomeController {
         person.setName(firstName);
         person.setLastName(lastName);
         model.addAttribute("person", person);
+        return "resultPerson";
+    }
+
+    /**
+     * @ModelAttribute way.
+     * Below way doesn't even require additional Model. It doesn't even require the name
+     * of the parameter to match the one in the .jsp file... and it doesn't even need
+     * the @ModelAttribute annotation.
+     * The below way is technically working... but it will only give me the surname. It
+     * seems to not be able to differentiate between multiple provided values and just
+     * takes the last one given.
+     * I could also add @ModelAttribute before the provided parameter and it would be
+     * technically correct, as well as add an additional parameter of Model and
+     * .addAttribute to it, like I did in the above method.
+     * Perhaps this way here is useful if all provided parameters are of different
+     * types so there's no two ways about assigning things to their respective
+     * values in the View?
+     */
+
+    @RequestMapping("/createAPersonButDifferently")
+    public String addAPersonButAnotherWay(Person p) {
         return "resultPerson";
     }
 }
