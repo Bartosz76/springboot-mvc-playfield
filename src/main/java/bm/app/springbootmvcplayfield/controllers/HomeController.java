@@ -127,16 +127,34 @@ public class HomeController {
      * The below way is technically working... but it will only give me the surname. It
      * seems to not be able to differentiate between multiple provided values and just
      * takes the last one given.
+     * EDIT: It works, but the attribute's name in objectPage.jsp needs to match the
+     * variable name in the provided class (I give it just a class as a parameter, so
+     * it goes there to determine what is what in the input).
      * I could also add @ModelAttribute before the provided parameter and it would be
      * technically correct, as well as add an additional parameter of Model and
      * .addAttribute to it, like I did in the above method.
      * Perhaps this way here is useful if all provided parameters are of different
      * types so there's no two ways about assigning things to their respective
      * values in the View?
+     * EDIT: Nah, just make sure the variables' names match and it'll be fine.
      */
 
     @RequestMapping("/createAPersonButDifferently")
     public String addAPersonButAnotherWay(Person p) {
         return "resultPerson";
+    }
+
+    /**
+     * ModelAttribute at method's level.
+     * Spring will first call methods with @ModelAttribute before calling any
+     * @RequestMapping method. It doesn't matter which method with the @RequestMapping
+     * annotation will be called. The model set in @ModelAttribute method will be available.
+     * Obviously, I can just add Model as another parameter in particular @RequestMapping
+     * method as usual, but that's another way of doing it -> "on a method level".
+     */
+
+    @ModelAttribute
+    public void modelData(Model model) {
+        model.addAttribute("word", "Hedgehog");
     }
 }

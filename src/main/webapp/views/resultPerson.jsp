@@ -13,6 +13,7 @@
 </style>
 <body>
 Kinda green now. Anyway, welcome: ${person}
+Your word of the day is: ${word}
 <form action="/index" method="get">
     <input type="submit" value="Back to menu.">
 </form>

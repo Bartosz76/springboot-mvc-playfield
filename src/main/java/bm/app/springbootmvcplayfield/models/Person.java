@@ -1,3 +1,4 @@
+
 package bm.app.springbootmvcplayfield.models;
 
 public class Person {
