@@ -1,8 +1,10 @@
 package bm.app.springbootmvcplayfield.controllers;
 
+import bm.app.springbootmvcplayfield.models.Macedonian;
 import bm.app.springbootmvcplayfield.models.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Arrays;
+import java.util.List;
 
 @Controller
 public class HomeController {
@@ -156,5 +160,20 @@ public class HomeController {
     @ModelAttribute
     public void modelData(Model model) {
         model.addAttribute("word", "Hedgehog");
+    }
+
+    /**
+     * ---Differentiating between HTTP methods below.---
+     */
+
+    @GetMapping("getMacedonians")
+    public String getMacedonians(Model model) {
+        List<Macedonian> macedonians = Arrays.asList(
+                new Macedonian("Teukos", 24, "Phalangite"),
+                new Macedonian("Nikanor", 26, "Hetairoi"),
+                new Macedonian("Amyntas", 32, "Hypaspist")
+        );
+        model.addAttribute("macedonians", macedonians);
+        return "resultMacedonian";
     }
 }
