@@ -13,7 +13,6 @@
 </style>
 <body>
 Very purple. Much wow. Anyway, the unit consists of: ${macedonians}
-${fak}
 <form action="/index" method="get">
     <input type="submit" value="Back to menu.">
 </form>

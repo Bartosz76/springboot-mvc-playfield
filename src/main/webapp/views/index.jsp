@@ -24,7 +24,7 @@
     <form action="/objectPage" method="get">
         <input type="submit" value="Go to object adding page.">
     </form>
-    <form action="/getMacedonians" method="get">
+    <form action="/macedonianPage" method="get">
         <input type="submit" value="Go to the Macedonian page.">
     </form>
 </body>

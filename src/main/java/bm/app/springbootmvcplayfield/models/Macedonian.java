@@ -1,15 +1,33 @@
 package bm.app.springbootmvcplayfield.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Macedonian {
 
     private String name;
     private int age;
     private String unitType;
+    private static List<Macedonian> macedonians = new ArrayList<>();
+
+    static {
+        macedonians.add(new Macedonian("Teukos", 24, "Phalangite"));
+        macedonians.add(new Macedonian("Nikanor", 26, "Hetairoi"));
+        macedonians.add(new Macedonian("Amyntas", 32, "Hypaspist"));
+    }
 
     public Macedonian(String name, int age, String unitType) {
         this.name = name;
         this.age = age;
         this.unitType = unitType;
+    }
+
+    public static List<Macedonian> getMacedonians() {
+        return macedonians;
+    }
+
+    public static void setMacedonians(List<Macedonian> macedonians) {
+        Macedonian.macedonians = macedonians;
     }
 
     public String getName() {
